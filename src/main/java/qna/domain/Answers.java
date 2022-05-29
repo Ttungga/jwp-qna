@@ -23,11 +23,6 @@ public class Answers {
         answers.remove(answer);
     }
 
-    public boolean allWrittenBy(final User writer) {
-        return answers.stream()
-                .allMatch(answer -> answer.isOwner(writer));
-    }
-
     public List<DeleteHistory> delete(final User writer) {
         final List<DeleteHistory> deleteHistories = new LinkedList<>();
         for (final Answer answer : answers) {

@@ -33,20 +33,6 @@ public class QuestionTest {
     }
 
     @Test
-    void 질문글의_작성자인지_여부를_확인할_수_있어야_한다() {
-        // given
-        final User a1Writer = UserTest.JAVAJIGI;
-        final User a2Writer = UserTest.SANJIGI;
-
-        // when and then
-        assertThat(Q1.isOwner(a1Writer)).isTrue();
-        assertThat(Q1.isOwner(a2Writer)).isFalse();
-
-        assertThat(Q2.isOwner(a1Writer)).isFalse();
-        assertThat(Q2.isOwner(a2Writer)).isTrue();
-    }
-
-    @Test
     void 질문글에_답변을_추가할_수_있어야_한다() {
         // given
         final Question question = new Question(1L, "title", "contents");
