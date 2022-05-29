@@ -71,7 +71,7 @@ public class Answer extends BaseTimeEntity {
         question.addAnswer(this);
     }
 
-    public DeleteHistory delete(final User writer) throws CannotDeleteException {
+    public DeleteHistory delete(final User writer) {
         if (!isOwner(writer)) {
             throw new CannotDeleteException("답변을 삭제할 권한이 없습니다.");
         }

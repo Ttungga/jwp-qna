@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Set;
 import javax.persistence.Embeddable;
 import javax.persistence.OneToMany;
-import qna.CannotDeleteException;
 
 @Embeddable
 public class Answers {
@@ -29,7 +28,7 @@ public class Answers {
                 .allMatch(answer -> answer.isOwner(writer));
     }
 
-    public List<DeleteHistory> delete(final User writer) throws CannotDeleteException {
+    public List<DeleteHistory> delete(final User writer) {
         final List<DeleteHistory> deleteHistories = new LinkedList<>();
         for (final Answer answer : answers) {
             deleteHistories.add(answer.delete(writer));

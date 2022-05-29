@@ -71,7 +71,7 @@ public class Question extends BaseTimeEntity {
         answers.remove(answer);
     }
 
-    public List<DeleteHistory> delete(final User writer) throws CannotDeleteException {
+    public List<DeleteHistory> delete(final User writer) {
         canBeDeletedBy(writer);
         List<DeleteHistory> deleteHistories = new LinkedList<>();
         deleted = true;
@@ -103,7 +103,7 @@ public class Question extends BaseTimeEntity {
         return deleted;
     }
 
-    private void canBeDeletedBy(final User loginUser) throws CannotDeleteException {
+    private void canBeDeletedBy(final User loginUser) {
         if (!isOwner(loginUser)) {
             throw new CannotDeleteException("질문을 삭제할 권한이 없습니다.");
         }
