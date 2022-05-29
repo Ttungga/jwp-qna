@@ -23,10 +23,10 @@ public class Answers {
         answers.remove(answer);
     }
 
-    public List<DeleteHistory> delete(final User writer) {
+    public List<DeleteHistory> deleteAlongWithQuestion(final User questionWriter) {
         final List<DeleteHistory> deleteHistories = new LinkedList<>();
         for (final Answer answer : answers) {
-            deleteHistories.add(answer.delete(writer));
+            deleteHistories.add(answer.delete(questionWriter));
         }
         return deleteHistories;
     }

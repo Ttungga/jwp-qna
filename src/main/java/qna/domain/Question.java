@@ -74,7 +74,7 @@ public class Question extends BaseTimeEntity {
         List<DeleteHistory> deleteHistories = new LinkedList<>();
         deleted = true;
         deleteHistories.add(new DeleteHistory(ContentType.QUESTION, id, writer, LocalDateTime.now()));
-        deleteHistories.addAll(answers.delete(writer));
+        deleteHistories.addAll(answers.deleteAlongWithQuestion(writer));
         return deleteHistories;
     }
 
